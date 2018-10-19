@@ -8,4 +8,6 @@ public interface PegawaiService {
     //PegawaiModel getPegawaiDetailById(Long id);
     double getGajiLengkapByNip(String nip);
     void addPegawai(PegawaiModel pegawai);
+    PegawaiModel cariPegawaiTermuda(long idInstansi);
+    PegawaiModel cariPegawaiTertua (long idInstansi);
 }

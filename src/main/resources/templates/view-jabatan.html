@@ -19,7 +19,7 @@
 </form>
 
 <form th:action="@{/jabatan/hapus}" method="GET">
-    <input type="hidden" th:field="*{jabatan.id}"></input>
+    <input type="hidden" name="idJabatan" th:field="*{jabatan.id}"></input>
     <button type="submit" class="btn btn-primary">Hapus</button>
 </form>
 </body>

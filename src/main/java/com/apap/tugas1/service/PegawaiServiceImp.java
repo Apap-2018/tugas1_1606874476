@@ -40,6 +40,46 @@ public class PegawaiServiceImp implements PegawaiService {
         pegawaiDB.save(pegawai);
     }
 
+    @Override
+    public PegawaiModel cariPegawaiTermuda(long idInstansi) {
+        PegawaiModel pegawaiTermuda = new PegawaiModel();
+        int cnt = 0;
+        for (PegawaiModel pegawaiModel : pegawaiDB.findAll()) {
+            if (pegawaiModel.getInstansi().getId() == idInstansi) {
+                if (cnt == 0) {
+                    pegawaiTermuda = pegawaiModel;
+                    cnt += 1;
+                }
+                else {
+                    if (pegawaiModel.getTanggalLahir().compareTo(pegawaiTermuda.getTanggalLahir()) > 0) {
+                        pegawaiTermuda = pegawaiModel;
+                    }
+                }
+            }
+        }
+        return pegawaiTermuda;
+    }
+
+    @Override
+    public PegawaiModel cariPegawaiTertua(long idInstansi) {
+        PegawaiModel pegawaiTertua = new PegawaiModel();
+        int cnt = 0;
+        for (PegawaiModel pegawaiModel : pegawaiDB.findAll()) {
+            if (pegawaiModel.getInstansi().getId() == idInstansi) {
+                if (cnt == 0) {
+                    pegawaiTertua = pegawaiModel;
+                    cnt += 1;
+                }
+                else {
+                    if (pegawaiModel.getTanggalLahir().compareTo(pegawaiTertua.getTanggalLahir()) < 0) {
+                        pegawaiTertua = pegawaiModel;
+                    }
+                }
+            }
+        }
+        return pegawaiTertua;
+    }
+
     //@Override
     //public long countEntity() {
     //return pegawaiDB.count();

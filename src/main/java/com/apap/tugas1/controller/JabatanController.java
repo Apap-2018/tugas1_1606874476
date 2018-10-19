@@ -1,6 +1,7 @@
 package com.apap.tugas1.controller;
 
 import com.apap.tugas1.model.JabatanModel;
+import com.apap.tugas1.repository.JabatanDB;
 import com.apap.tugas1.service.JabatanService;
 import com.apap.tugas1.service.PegawaiService;
 import com.apap.tugas1.service.ProvinsiService;
@@ -64,5 +65,26 @@ public class JabatanController {
         jabatanService.addJabatan(jabatan);
         model.addAttribute("jabatan", jabatan);
         return "sukses-ubah-jabatan";
+    }
+
+    //fitur 8
+    @RequestMapping(value = "/jabatan/hapus", method = RequestMethod.GET)
+    public String delete(@RequestParam(value = "id") long id, Model model) {
+        JabatanModel jabatan = jabatanService.findJabatanDetailById(id);
+
+        if (jabatan.getPegawaiList().size() < 1) {
+            jabatanService.deleteJabatan(id);
+            return "delete";
+        }
+        else {
+            return "delete-failed";
+        }
+    }
+
+    //fitur 9
+    @RequestMapping(value = "/jabatan/viewall", method = RequestMethod.GET)
+    public String viewallJabatan(Model model) {
+        model.addAttribute("listJabatan", jabatanService.findAllJabatan());
+        return "viewall-jabatan";
     }
 }

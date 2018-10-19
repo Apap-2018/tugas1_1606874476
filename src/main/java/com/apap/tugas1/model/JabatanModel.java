@@ -67,5 +67,12 @@ public class JabatanModel implements Serializable {
         this.gajiPokok = gajiPokok;
     }
 
+    public List<PegawaiModel> getPegawaiList() {
+        return pegawaiList;
+    }
+
+    public void setPegawaiList(List<PegawaiModel> pegawaiList) {
+        this.pegawaiList = pegawaiList;
+    }
 }
 

@@ -36,4 +36,8 @@ public class InstansiServiceImp implements InstansiService {
         return InstansiDB.findById(id);
     }
 
+    @Override
+    public List<InstansiModel> findAllInstansi() {
+        return InstansiDB.findAll();
+    }
 }

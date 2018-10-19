@@ -72,7 +72,7 @@ public class JabatanController {
     public String delete(@RequestParam(value = "id") long id, Model model) {
         JabatanModel jabatan = jabatanService.findJabatanDetailById(id);
 
-        if (jabatan.getPegawaiList().size() < 1) {
+        if (jabatan.getSize() != 0) {
             jabatanService.deleteJabatan(id);
             return "delete";
         }

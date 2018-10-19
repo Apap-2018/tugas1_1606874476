@@ -50,7 +50,7 @@ public class PegawaiController {
     }
 
     //fitur 2
-    @RequestMapping(value = "/pegawai/view", method = RequestMethod.GET)
+    @RequestMapping(value = "/pegawai/tambah", method = RequestMethod.GET)
     private String addPegawai (Model model) {
         PegawaiModel pegawai = new PegawaiModel();
         pegawai.setInstansi(new InstansiModel());
@@ -58,6 +58,8 @@ public class PegawaiController {
         model.addAttribute("pegawai", pegawai);
         model.addAttribute("listProvinsi", provinsiService.getProvinsiList());
         model.addAttribute("listJabatan", jabatanService.findAllJabatan());
+        model.addAttribute("listInstansi",instansiService.findAllInstansi());
+
 
         return "tambah-pegawai";
     }

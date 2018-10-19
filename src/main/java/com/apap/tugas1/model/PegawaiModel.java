@@ -122,4 +122,5 @@ public class PegawaiModel implements Serializable {
         this.instansi = instansi;
     }
 
+
 }

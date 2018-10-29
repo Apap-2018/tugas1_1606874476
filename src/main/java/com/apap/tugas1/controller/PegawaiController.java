@@ -1,7 +1,6 @@
 package com.apap.tugas1.controller;
 
 import com.apap.tugas1.model.InstansiModel;
-import com.apap.tugas1.model.JabatanModel;
 import com.apap.tugas1.model.PegawaiModel;
 import com.apap.tugas1.service.InstansiService;
 import com.apap.tugas1.service.JabatanService;

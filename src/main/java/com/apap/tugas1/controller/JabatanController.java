@@ -74,10 +74,12 @@ public class JabatanController {
 
         if (jabatan.getSize() != 0) {
             jabatanService.deleteJabatan(id);
-            return "delete";
+            model.addAttribute("jabatan", jabatan);
+            return "delete-failed";
         }
         else {
-            return "delete-failed";
+            model.addAttribute("jabatan", jabatan);
+            return "delete";
         }
     }
 

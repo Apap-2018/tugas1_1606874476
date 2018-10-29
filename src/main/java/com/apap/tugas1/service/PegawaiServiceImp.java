@@ -8,6 +8,8 @@ import com.apap.tugas1.model.JabatanModel;
 import com.apap.tugas1.model.PegawaiModel;
 import com.apap.tugas1.repository.PegawaiDB;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class PegawaiServiceImp implements PegawaiService {
@@ -78,6 +80,11 @@ public class PegawaiServiceImp implements PegawaiService {
             }
         }
         return pegawaiTertua;
+    }
+
+    @Override
+    public List<PegawaiModel> getSemuaPegawai() {
+        return pegawaiDB.findAll();
     }
 
     //@Override
